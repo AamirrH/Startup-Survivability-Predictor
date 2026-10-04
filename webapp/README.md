@@ -14,6 +14,8 @@ python -m venv .venv
 
 Open **http://127.0.0.1:8000**. If the project environment already exists, skip the first command. Waitress serves the app without debug mode. The saved model is included, so training is not needed at startup.
 
+The training data is a historical snapshot ending in 2015. The model compares a new profile with older companies that were acquired or closed; it does not prove that a startup will survive or succeed. The app accepts valid founded and funding years after 2015, but shows a warning because newer startups were not part of model validation. It rejects future years and inconsistent timelines, such as first funding after last funding. A funding-round count itself is not limited to 2015.
+
 On macOS/Linux, use `.venv/bin/python` instead of `.venv\Scripts\python.exe`.
 
 ## Use it on a phone

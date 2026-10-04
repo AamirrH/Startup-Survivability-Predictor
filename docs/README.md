@@ -26,6 +26,14 @@ Run notebooks from top to bottom in this order:
 
 The cleaned CSV is included, so either model notebook can run independently without rerunning the EDA. The EDA downloads the original public [Kaggle dataset](https://www.kaggle.com/datasets/yanmaksi/big-startup-secsees-fail-dataset-from-crunchbase) if `data/big_startup_secsees_dataset.csv` is absent. Alternatively, download and extract that file into `data/`. The original source CSV is excluded from Git.
 
+## What the 2015 cutoff means
+
+This model learned from a historical snapshot whose usable dates end in 2015. It learned which older startup profiles were later acquired or closed; it is not a guaranteed forecast of future survival.
+
+The webapp still accepts a founded year or last funding year after 2015 when the year is valid and not in the future. It displays a warning because the model has not been validated on newer startups. For example, a 2020 startup can receive a result, but the result only says that its profile resembles older acquired or closed companies. To make reliable current-day predictions, retrain with newer data and define a future outcome period.
+
+The app rejects impossible dates, such as a year beyond the current year, a first funding year after the last funding year, or a founding year after the last funding year. A funding-round count is not restricted to 2015; the date of that round is what receives the newer-data warning.
+
 ## Cleaning corrections
 
 The supplied folder contained the EDA notebook but no exported dataset. Its saved outputs showed 66,368 source records and 11,787 acquired/closed records; the downloaded source matches these counts.
