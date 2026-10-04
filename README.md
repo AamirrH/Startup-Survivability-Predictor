@@ -2,6 +2,10 @@
 
 Separate, executed Jupyter notebooks implement scikit-learn Random Forest and RBF SVM. All model code uses library implementations and has no code comments. Short Markdown explanations describe the methodology.
 
+The [final four-model comparison](FINAL_MODEL_COMPARISON.md) now reviews the added Logistic Regression and Decision Tree notebooks and compares all four algorithms under one evaluation protocol. The supplied LR/tree notebooks retain their original code and saved outputs. The RF/SVM notebooks have been simplified while preserving their content and results. The no-code-comments statement above applies to the RF/SVM implementation; the submitted LR/tree notebooks contain their original comments.
+
+After running RF and SVM, run `.\.venv\Scripts\python.exe compare_models.py` to reproduce the common LR/tree benchmark and update `results/final_model_comparison.csv`. The two-model results and original instructions below remain available for the RF/SVM experiment.
+
 ## Run
 
 Use Python 3.12, install `requirements.txt`, and open Jupyter from this project folder:

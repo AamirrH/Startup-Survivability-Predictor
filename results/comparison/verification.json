@@ -1,0 +1,21 @@
+{
+  "models": [
+    "Random Forest",
+    "SVM",
+    "Logistic Regression",
+    "Decision Tree"
+  ],
+  "train_rows": 9429,
+  "test_rows": 2358,
+  "cross_validation_folds": 3,
+  "candidates_per_model": 6,
+  "selection_metric": "f1_macro",
+  "verification": [
+    "RF/SVM notebooks fully executed without error outputs",
+    "RF/SVM original Markdown preserved exactly",
+    "RF/SVM predictions, CV scores and metrics match previous committed results",
+    "four models use identical test company IDs and labels",
+    "eight metrics independently recomputed for all four models",
+    "friend notebooks and cleaned dataset unchanged"
+  ]
+}
