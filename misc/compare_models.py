@@ -35,7 +35,7 @@ def main():
     output_dir = results_dir / "comparison"
     output_dir.mkdir(exist_ok=True, parents=True)
 
-    df = pd.read_csv(root / "cleaned_startup_data.csv")
+    df = pd.read_csv(root / "data" / "cleaned_startup_data.csv")
     df = df.sort_values("startup_id").reset_index(drop=True)
     assert df["startup_id"].is_unique
     assert df["startup_id"].notna().all()

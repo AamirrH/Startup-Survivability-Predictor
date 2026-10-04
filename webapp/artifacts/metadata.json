@@ -1,0 +1,803 @@
+{
+  "model": "Random Forest",
+  "sklearn_version": "1.9.1",
+  "data_sha256": "c841fc5ef549d145372e1c262a730ce7bd658db92059a744cf90f844dedfdf24",
+  "train_rows": 9429,
+  "test_rows": 2358,
+  "accuracy": 0.7425784563189143,
+  "macro_f1": 0.7413118055340933,
+  "roc_auc": 0.8266123094248095,
+  "countries": [
+    {
+      "code": "ARG",
+      "name": "Argentina"
+    },
+    {
+      "code": "AUS",
+      "name": "Australia"
+    },
+    {
+      "code": "AUT",
+      "name": "Austria"
+    },
+    {
+      "code": "BHR",
+      "name": "Bahrain"
+    },
+    {
+      "code": "BLR",
+      "name": "Belarus"
+    },
+    {
+      "code": "BEL",
+      "name": "Belgium"
+    },
+    {
+      "code": "BMU",
+      "name": "Bermuda"
+    },
+    {
+      "code": "BRA",
+      "name": "Brazil"
+    },
+    {
+      "code": "BGR",
+      "name": "Bulgaria"
+    },
+    {
+      "code": "CAN",
+      "name": "Canada"
+    },
+    {
+      "code": "CHL",
+      "name": "Chile"
+    },
+    {
+      "code": "CHN",
+      "name": "China"
+    },
+    {
+      "code": "COL",
+      "name": "Colombia"
+    },
+    {
+      "code": "CRI",
+      "name": "Costa Rica"
+    },
+    {
+      "code": "CZE",
+      "name": "Czechia"
+    },
+    {
+      "code": "DNK",
+      "name": "Denmark"
+    },
+    {
+      "code": "SLV",
+      "name": "El Salvador"
+    },
+    {
+      "code": "EST",
+      "name": "Estonia"
+    },
+    {
+      "code": "FIN",
+      "name": "Finland"
+    },
+    {
+      "code": "FRA",
+      "name": "France"
+    },
+    {
+      "code": "GEO",
+      "name": "Georgia"
+    },
+    {
+      "code": "DEU",
+      "name": "Germany"
+    },
+    {
+      "code": "GHA",
+      "name": "Ghana"
+    },
+    {
+      "code": "GRC",
+      "name": "Greece"
+    },
+    {
+      "code": "GTM",
+      "name": "Guatemala"
+    },
+    {
+      "code": "HKG",
+      "name": "Hong Kong"
+    },
+    {
+      "code": "HUN",
+      "name": "Hungary"
+    },
+    {
+      "code": "ISL",
+      "name": "Iceland"
+    },
+    {
+      "code": "IND",
+      "name": "India"
+    },
+    {
+      "code": "IDN",
+      "name": "Indonesia"
+    },
+    {
+      "code": "IRL",
+      "name": "Ireland"
+    },
+    {
+      "code": "ISR",
+      "name": "Israel"
+    },
+    {
+      "code": "ITA",
+      "name": "Italy"
+    },
+    {
+      "code": "JPN",
+      "name": "Japan"
+    },
+    {
+      "code": "JOR",
+      "name": "Jordan"
+    },
+    {
+      "code": "KOR",
+      "name": "Korea, Republic of"
+    },
+    {
+      "code": "LVA",
+      "name": "Latvia"
+    },
+    {
+      "code": "LBN",
+      "name": "Lebanon"
+    },
+    {
+      "code": "LIE",
+      "name": "Liechtenstein"
+    },
+    {
+      "code": "LTU",
+      "name": "Lithuania"
+    },
+    {
+      "code": "LUX",
+      "name": "Luxembourg"
+    },
+    {
+      "code": "MYS",
+      "name": "Malaysia"
+    },
+    {
+      "code": "MLT",
+      "name": "Malta"
+    },
+    {
+      "code": "MEX",
+      "name": "Mexico"
+    },
+    {
+      "code": "NLD",
+      "name": "Netherlands"
+    },
+    {
+      "code": "NZL",
+      "name": "New Zealand"
+    },
+    {
+      "code": "NGA",
+      "name": "Nigeria"
+    },
+    {
+      "code": "MKD",
+      "name": "North Macedonia"
+    },
+    {
+      "code": "NOR",
+      "name": "Norway"
+    },
+    {
+      "code": "PAK",
+      "name": "Pakistan"
+    },
+    {
+      "code": "PER",
+      "name": "Peru"
+    },
+    {
+      "code": "PHL",
+      "name": "Philippines"
+    },
+    {
+      "code": "POL",
+      "name": "Poland"
+    },
+    {
+      "code": "PRT",
+      "name": "Portugal"
+    },
+    {
+      "code": "PRI",
+      "name": "Puerto Rico"
+    },
+    {
+      "code": "ROM",
+      "name": "ROM"
+    },
+    {
+      "code": "RUS",
+      "name": "Russian Federation"
+    },
+    {
+      "code": "MAF",
+      "name": "Saint Martin (French part)"
+    },
+    {
+      "code": "SAU",
+      "name": "Saudi Arabia"
+    },
+    {
+      "code": "SYC",
+      "name": "Seychelles"
+    },
+    {
+      "code": "SGP",
+      "name": "Singapore"
+    },
+    {
+      "code": "SVK",
+      "name": "Slovakia"
+    },
+    {
+      "code": "SOM",
+      "name": "Somalia"
+    },
+    {
+      "code": "ZAF",
+      "name": "South Africa"
+    },
+    {
+      "code": "ESP",
+      "name": "Spain"
+    },
+    {
+      "code": "SWE",
+      "name": "Sweden"
+    },
+    {
+      "code": "CHE",
+      "name": "Switzerland"
+    },
+    {
+      "code": "TAN",
+      "name": "TAN"
+    },
+    {
+      "code": "TWN",
+      "name": "Taiwan, Province of China"
+    },
+    {
+      "code": "THA",
+      "name": "Thailand"
+    },
+    {
+      "code": "TTO",
+      "name": "Trinidad and Tobago"
+    },
+    {
+      "code": "TUR",
+      "name": "T\u00fcrkiye"
+    },
+    {
+      "code": "UGA",
+      "name": "Uganda"
+    },
+    {
+      "code": "UKR",
+      "name": "Ukraine"
+    },
+    {
+      "code": "ARE",
+      "name": "United Arab Emirates"
+    },
+    {
+      "code": "GBR",
+      "name": "United Kingdom"
+    },
+    {
+      "code": "USA",
+      "name": "United States"
+    },
+    {
+      "code": "URY",
+      "name": "Uruguay"
+    },
+    {
+      "code": "VNM",
+      "name": "Viet Nam"
+    }
+  ],
+  "categories": [
+    "3D",
+    "3D Printing",
+    "3D Technology",
+    "Accounting",
+    "Active Lifestyle",
+    "Ad Targeting",
+    "Advanced Materials",
+    "Adventure Travel",
+    "Advertising",
+    "Advertising Exchanges",
+    "Advertising Networks",
+    "Advertising Platforms",
+    "Advice",
+    "Aerospace",
+    "Agriculture",
+    "Algorithms",
+    "All Markets",
+    "All Students",
+    "Alumni",
+    "Analytics",
+    "Android",
+    "Angels",
+    "Animal Feed",
+    "Anything Capital Intensive",
+    "App Marketing",
+    "App Stores",
+    "Application Performance Monitoring",
+    "Application Platforms",
+    "Apps",
+    "Architecture",
+    "Archiving",
+    "Art",
+    "Artificial Intelligence",
+    "Artists Globally",
+    "Assisitive Technology",
+    "Auctions",
+    "Audio",
+    "Augmented Reality",
+    "Auto",
+    "Automated Kiosk",
+    "Automotive",
+    "B2B",
+    "B2B Express Delivery",
+    "BPO Services",
+    "Babies",
+    "Baby Accessories",
+    "Baby Boomers",
+    "Baby Safety",
+    "Banking",
+    "Batteries",
+    "Beauty",
+    "Bicycles",
+    "Big Data",
+    "Big Data Analytics",
+    "Billing",
+    "Bio-Pharm",
+    "Bioinformatics",
+    "Biometrics",
+    "Biotechnology",
+    "Bitcoin",
+    "Blogging Platforms",
+    "Boating Industry",
+    "Brand Marketing",
+    "Brewing",
+    "Bridging Online and Offline",
+    "Broadcasting",
+    "Brokers",
+    "Browser Extensions",
+    "Building Products",
+    "Business Analytics",
+    "Business Development",
+    "Business Intelligence",
+    "Business Productivity",
+    "Business Services",
+    "CRM",
+    "Cable",
+    "Carbon",
+    "Career Management",
+    "Career Planning",
+    "Cars",
+    "Casual Games",
+    "Celebrity",
+    "Certification Test",
+    "Charity",
+    "Charter Schools",
+    "Chat",
+    "Chemicals",
+    "Classifieds",
+    "Clean Energy",
+    "Clean Technology",
+    "Clinical Trials",
+    "Cloud Computing",
+    "Cloud Data Services",
+    "Cloud Infrastructure",
+    "Cloud Management",
+    "Cloud Security",
+    "Collaboration",
+    "Collaborative Consumption",
+    "Collectibles",
+    "College Campuses",
+    "Colleges",
+    "Comics",
+    "Commercial Real Estate",
+    "Commodities",
+    "Communications Hardware",
+    "Communications Infrastructure",
+    "Communities",
+    "Comparison Shopping",
+    "Computer Vision",
+    "Computers",
+    "Concentrated Solar Power",
+    "Concerts",
+    "Construction",
+    "Consulting",
+    "Consumer Behavior",
+    "Consumer Electronics",
+    "Consumer Goods",
+    "Consumer Internet",
+    "Consumer Lending",
+    "Consumers",
+    "Contact Centers",
+    "Contact Management",
+    "Content",
+    "Content Creators",
+    "Content Delivery",
+    "Content Discovery",
+    "Content Syndication",
+    "Cooking",
+    "Corporate Training",
+    "Corporate Wellness",
+    "Cosmetics",
+    "Coupons",
+    "Creative",
+    "Creative Industries",
+    "Credit",
+    "Credit Cards",
+    "Crowdfunding",
+    "Crowdsourcing",
+    "Curated Web",
+    "Customer Service",
+    "Customer Support Tools",
+    "Cyber Security",
+    "DIY",
+    "DOD/Military",
+    "Data Center Automation",
+    "Data Centers",
+    "Data Integration",
+    "Data Mining",
+    "Data Privacy",
+    "Data Security",
+    "Data Visualization",
+    "Databases",
+    "Defense",
+    "Delivery",
+    "Demographies",
+    "Dental",
+    "Design",
+    "Designers",
+    "Developer APIs",
+    "Developer Tools",
+    "Development Platforms",
+    "Diabetes",
+    "Diagnostics",
+    "Dietary Supplements",
+    "Digital Media",
+    "Digital Rights Management",
+    "Digital Signage",
+    "Discounts",
+    "Displays",
+    "Distribution",
+    "Distributors",
+    "Doctors",
+    "Document Management",
+    "Domains",
+    "Drones",
+    "E-Books",
+    "E-Commerce",
+    "E-Commerce Platforms",
+    "EDA Tools",
+    "EdTech",
+    "Ediscovery",
+    "Education",
+    "Educational Games",
+    "Elder Care",
+    "Electric Vehicles",
+    "Electrical Distribution",
+    "Electronic Health Records",
+    "Electronics",
+    "Email",
+    "Email Marketing",
+    "Embedded Hardware and Software",
+    "Emerging Markets",
+    "Employer Benefits Programs",
+    "Employment",
+    "Energy",
+    "Energy Efficiency",
+    "Engineering Firms",
+    "Enterprise 2.0",
+    "Enterprise Resource Planning",
+    "Enterprise Security",
+    "Enterprise Software",
+    "Enterprises",
+    "Entertainment",
+    "Entertainment Industry",
+    "Entrepreneur",
+    "Environmental Innovation",
+    "Event Management",
+    "Events",
+    "Exercise",
+    "Eyewear",
+    "Facebook Applications",
+    "Fantasy Sports",
+    "Farming",
+    "Fashion",
+    "File Sharing",
+    "Film",
+    "FinTech",
+    "Finance",
+    "Finance Technology",
+    "Financial Services",
+    "Fitness",
+    "Flash Sales",
+    "Flash Storage",
+    "Fleet Management",
+    "Fmcg",
+    "Food Processing",
+    "Fraud Detection",
+    "Freelancers",
+    "Freemium",
+    "Furniture",
+    "Gadget",
+    "Gambling",
+    "Game",
+    "Games",
+    "Gamification",
+    "Geospatial",
+    "Gift Card",
+    "Gift Exchange",
+    "Gift Registries",
+    "Golf Equipment",
+    "Governance",
+    "Governments",
+    "Gps",
+    "Graphics",
+    "Groceries",
+    "Group Buying",
+    "Guides",
+    "Hardware",
+    "Hardware + Software",
+    "Health Care",
+    "Health Care Information Technology",
+    "Health Diagnostics",
+    "Health and Insurance",
+    "Health and Wellness",
+    "Healthcare Services",
+    "Heavy Industry",
+    "Home & Garden",
+    "Home Automation",
+    "Home Decor",
+    "Home Owners",
+    "Home Renovation",
+    "Hospitality",
+    "Hospitals",
+    "Hotels",
+    "Human Resources",
+    "Humanitarian",
+    "IT Management",
+    "Identity",
+    "Identity Management",
+    "In-Flight Entertainment",
+    "Incentives",
+    "Incubators",
+    "Independent Pharmacies",
+    "Industrial",
+    "Industrial Automation",
+    "Information Security",
+    "Information Services",
+    "Information Technology",
+    "Infrastructure",
+    "Innovation Engineering",
+    "Innovation Management",
+    "Insurance",
+    "Intellectual Asset Management",
+    "Intellectual Property",
+    "Intelligent Systems",
+    "Interest Graph",
+    "Interface Design",
+    "Interior Design",
+    "Internet",
+    "Internet Marketing",
+    "Internet Radio Market",
+    "Internet Service Providers",
+    "Internet TV",
+    "Internet of Things",
+    "Investment Management",
+    "Jewelry",
+    "Journalism",
+    "Kids",
+    "Lasers",
+    "Law Enforcement",
+    "Lead Generation",
+    "Lead Management",
+    "Legal",
+    "Leisure",
+    "Life Sciences",
+    "Lifestyle",
+    "Lighting",
+    "Linux",
+    "Local",
+    "Local Based Services",
+    "Local Businesses",
+    "Local Search",
+    "Location Based Services",
+    "Logistics",
+    "Logistics Company",
+    "Loyalty Programs",
+    "M2M",
+    "Machine Learning",
+    "Manufacturing",
+    "Maps",
+    "Market Research",
+    "Marketing Automation",
+    "Marketplaces",
+    "Media",
+    "Medical",
+    "Medical Devices",
+    "Medical Professionals",
+    "Meeting Software",
+    "Messaging",
+    "Mining Technologies",
+    "Mobile",
+    "Mobile Advertising",
+    "Mobile Commerce",
+    "Mobile Devices",
+    "Mobile Games",
+    "Mobile Security",
+    "Mobility",
+    "Music",
+    "Music Services",
+    "Musicians",
+    "Nanotechnology",
+    "Natural Language Processing",
+    "Natural Resources",
+    "Navigation",
+    "Network Security",
+    "Networking",
+    "News",
+    "Nightlife",
+    "Non Profit",
+    "Nonprofits",
+    "Office Space",
+    "Oil",
+    "Oil & Gas",
+    "Online Dating",
+    "Online Education",
+    "Online Gaming",
+    "Online Identity",
+    "Online Rental",
+    "Online Reservations",
+    "Online Scheduling",
+    "Online Shopping",
+    "Online Travel",
+    "Open Source",
+    "Opinions",
+    "Optical Communications",
+    "Optimization",
+    "Outdoors",
+    "Outsourcing",
+    "Parenting",
+    "Payments",
+    "Peer-to-Peer",
+    "Personalization",
+    "Pets",
+    "Pharmaceuticals",
+    "Photo Editing",
+    "Photo Sharing",
+    "Photography",
+    "Point of Sale",
+    "Polling",
+    "Portals",
+    "Presentations",
+    "Price Comparison",
+    "Printing",
+    "Privacy",
+    "Private Social Networking",
+    "Product Design",
+    "Product Search",
+    "Productivity Software",
+    "Professional Networking",
+    "Professional Services",
+    "Project Management",
+    "Promotional",
+    "Property Management",
+    "Public Relations",
+    "Public Safety",
+    "Public Transportation",
+    "Publishing",
+    "Q&A",
+    "Racing",
+    "Real Estate",
+    "Real Time",
+    "Recruiting",
+    "Renewable Energies",
+    "Reputation",
+    "Restaurants",
+    "Retail",
+    "Retail Technology",
+    "Reviews and Recommendations",
+    "Risk Management",
+    "SEO",
+    "SNS",
+    "SaaS",
+    "Sales and Marketing",
+    "Search",
+    "Search Marketing",
+    "Security",
+    "Self Development",
+    "Semiconductor Manufacturing Equipment",
+    "Semiconductors",
+    "Sensors",
+    "Service Providers",
+    "Services",
+    "Shipping",
+    "Skill Assessment",
+    "Small and Medium Businesses",
+    "Soccer",
+    "Social CRM",
+    "Social Commerce",
+    "Social Media",
+    "Social Media Management",
+    "Social Network Media",
+    "Social Travel",
+    "Software",
+    "Specialty Foods",
+    "Speech Recognition",
+    "Sporting Goods",
+    "Sports",
+    "Startups",
+    "Storage",
+    "Subscription Businesses",
+    "Subscription Service",
+    "Supply Chain Management",
+    "Systems",
+    "Technology",
+    "Telecommunications",
+    "Television",
+    "Ticketing",
+    "Trading",
+    "Transportation",
+    "Travel",
+    "Travel & Tourism",
+    "Video",
+    "VoIP",
+    "Waste Management",
+    "Wearables",
+    "Web Design",
+    "Web Development",
+    "Web Hosting",
+    "Web Tools",
+    "Wireless",
+    "Women",
+    "iOS",
+    "iPad",
+    "iPhone"
+  ],
+  "max_funding": 5820000000.0,
+  "max_rounds": 17,
+  "last_training_year": 2015,
+  "parameters": {
+    "n_estimators": 100,
+    "max_depth": null,
+    "min_samples_leaf": 5,
+    "random_state": 42
+  }
+}

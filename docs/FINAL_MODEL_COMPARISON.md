@@ -1,5 +1,7 @@
 # Startup Outcome Prediction: Final Model Comparison
 
+**Project decision:** Random Forest has been finalized for the UI phase. Its responsive application is in [webapp/](../webapp/README.md). The comparison below records the evidence and limitations behind that choice.
+
 ## Recommendation
 
 **Random Forest is the recommended candidate for the current acquired-versus-closed classification task.** It has the highest mean cross-validation macro F1, test macro F1, accuracy, ROC AUC, and average precision among the four models in the common evaluation.
@@ -8,7 +10,7 @@ SVM is a close alternative: its validation macro F1 is only **0.0010** lower. Th
 
 ## 1. Review of the submitted notebooks
 
-The repository contains [Logistic Regression](Logistic_regression.ipynb), [Decision Tree](Decision_tree.ipynb), [Random Forest](Random_Forest.ipynb), and [SVM](SVM.ipynb).
+The repository contains [Logistic Regression](../notebooks/Logistic_regression.ipynb), [Decision Tree](../notebooks/Decision_tree.ipynb), [Random Forest](../notebooks/Random_Forest.ipynb), and [SVM](../notebooks/SVM.ipynb).
 
 The Logistic Regression and Decision Tree notebooks demonstrate default models, tuning, classification metrics, confusion matrices, ROC curves, and feature analysis. The Decision Tree's saved results also clearly demonstrate reduced overfitting after tuning.
 
@@ -27,7 +29,7 @@ The same row count and random seed do not establish identical test companies whe
 
 In Logistic Regression, `StandardScaler` is fitted on all training rows before `GridSearchCV`. This lets validation-fold information influence scaling. It does **not** fit on the held-out test set, but the scaler should still be fitted separately inside each validation fold. Also, simply changing the Colab path would leave both notebooks incompatible with the current CSV: their `drop(target)` feature selection would include company IDs and categorical text, and they do not supply the needed imputation/encoding.
 
-The submitted notebooks remain unchanged. A separate [comparison script](compare_models.py) reruns LR/tree under the common protocol below. Their original tuning grids were reduced to six configurations for this benchmark; the new scores describe that explicitly defined experiment.
+The submitted notebooks remain unchanged. A separate [comparison script](../misc/compare_models.py) reruns LR/tree under the common protocol below. Their original tuning grids were reduced to six configurations for this benchmark; the new scores describe that explicitly defined experiment.
 
 ### Original saved results, for traceability
 
@@ -42,7 +44,7 @@ These values come from the submitted notebook outputs and describe their earlier
 
 ## 2. Data cleaning and splitting — rubric: 3 marks
 
-Source: [Crunchbase startup dataset on Kaggle](https://www.kaggle.com/datasets/yanmaksi/big-startup-secsees-fail-dataset-from-crunchbase). The corrected [EDA notebook](Fail_Dataset_from_Crunchbase.ipynb) exports the current [cleaned CSV](cleaned_startup_data.csv).
+Source: [Crunchbase startup dataset on Kaggle](https://www.kaggle.com/datasets/yanmaksi/big-startup-secsees-fail-dataset-from-crunchbase). The corrected [EDA notebook](../notebooks/Fail_Dataset_from_Crunchbase.ipynb) exports the current [cleaned CSV](../data/cleaned_startup_data.csv).
 
 - **Labels:** closed = 0, acquired = 1. Keep 11,787 labeled companies: 6,238 closed and 5,549 acquired. Exclude 53,034 operating companies with unresolved outcomes and 1,547 IPO companies to preserve this binary task.
 - **Cleaning:** parse funding numerically; keep unknown amounts missing; flag invalid dates; use the documented 1800–2015 date range; flag founding dates later than last funding conservatively. Pre-incorporation funding can explain some flagged dates, so these are not all proven typos.
@@ -122,16 +124,16 @@ The present labels distinguish acquisition from closure. They do not measure sur
 From the project folder, run both simplified notebooks, then run:
 
 ```powershell
-.\.venv\Scripts\python.exe compare_models.py
+.\.venv\Scripts\python.exe misc/compare_models.py
 ```
 
 The script trains LR/tree under the common protocol, verifies their test company sequence against RF/SVM, and builds the four-model CSV. Rerun it after changing either model notebook's results; this Markdown report describes the verified run accompanying it.
 
-- [Four-model metrics](results/final_model_comparison.csv)
-- [Logistic Regression validation](results/comparison/logistic_regression_cv.csv) and [predictions](results/comparison/logistic_regression_predictions.csv)
-- [Decision Tree validation](results/comparison/decision_tree_cv.csv) and [predictions](results/comparison/decision_tree_predictions.csv)
-- [Random Forest evaluation plots](results/random_forest_evaluation.png)
-- [SVM evaluation plots](results/svm_evaluation.png)
-- [Verification record](results/comparison/verification.json)
+- [Four-model metrics](../results/final_model_comparison.csv)
+- [Logistic Regression validation](../results/comparison/logistic_regression_cv.csv) and [predictions](../results/comparison/logistic_regression_predictions.csv)
+- [Decision Tree validation](../results/comparison/decision_tree_cv.csv) and [predictions](../results/comparison/decision_tree_predictions.csv)
+- [Random Forest evaluation plots](../results/random_forest_evaluation.png)
+- [SVM evaluation plots](../results/svm_evaluation.png)
+- [Verification record](../results/comparison/verification.json)
 
 The original two-model `results/model_comparison.csv` is retained to preserve the RF/SVM notebooks' existing behavior. `results/final_model_comparison.csv` is the combined four-model result.

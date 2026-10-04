@@ -1,24 +1,26 @@
 # Startup outcome model comparison
 
+Random Forest is now finalized for the UI phase. The responsive Flask app lives in [webapp/](../webapp/README.md). Run `.\.venv\Scripts\python.exe -m webapp.app` from the repository root after installing `webapp/requirements.txt`; open `http://127.0.0.1:8000`. See the app README for phone access and deployment instructions.
+
 Separate, executed Jupyter notebooks implement scikit-learn Random Forest and RBF SVM. All model code uses library implementations and has no code comments. Short Markdown explanations describe the methodology.
 
 The [final four-model comparison](FINAL_MODEL_COMPARISON.md) now reviews the added Logistic Regression and Decision Tree notebooks and compares all four algorithms under one evaluation protocol. The supplied LR/tree notebooks retain their original code and saved outputs. The RF/SVM notebooks have been simplified while preserving their content and results. The no-code-comments statement above applies to the RF/SVM implementation; the submitted LR/tree notebooks contain their original comments.
 
-After running RF and SVM, run `.\.venv\Scripts\python.exe compare_models.py` to reproduce the common LR/tree benchmark and update `results/final_model_comparison.csv`. The two-model results and original instructions below remain available for the RF/SVM experiment.
+After running RF and SVM, run `.\.venv\Scripts\python.exe misc/compare_models.py` from the repository root to reproduce the common LR/tree benchmark and update `results/final_model_comparison.csv`. The two-model results and original instructions below remain available for the RF/SVM experiment.
 
 ## Run
 
-Use Python 3.12, install `requirements.txt`, and open Jupyter from this project folder:
+Use Python 3.12, install `misc/requirements.txt`, and open Jupyter from the repository root:
 
 ```powershell
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m pip install -r misc/requirements.txt
 .\.venv\Scripts\python.exe -m notebook
 ```
 
 Run notebooks from top to bottom in this order:
 
-1. `Fail_Dataset_from_Crunchbase.ipynb`: corrected EDA and export of `cleaned_startup_data.csv`.
+1. [`Fail_Dataset_from_Crunchbase.ipynb`](../notebooks/Fail_Dataset_from_Crunchbase.ipynb): corrected EDA and export of `data/cleaned_startup_data.csv`.
 2. `Random_Forest.ipynb`: baseline validation, tuning, and Random Forest evaluation.
 3. `SVM.ipynb`: baseline validation, tuning, SVM evaluation, and the combined comparison.
 

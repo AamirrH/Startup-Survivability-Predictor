@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#174d40">
+  <meta name="description" content="Explore a startup's recorded outcome pattern with our Random Forest model.">
+  <title>Canopy · Startup outlook</title>
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#startup-form">Skip to startup details</a>
+  <header class="site-header">
+    <a href="/" class="brand" aria-label="Canopy home"><img src="{{ url_for('static', filename='favicon.svg') }}" alt="" width="36" height="36"><span>canopy<span class="brand-note">STARTUP OUTLOOK</span></span></a>
+    <span class="model-badge"><span class="status-dot"></span>Powered by Random Forest</span>
+  </header>
+
+  <main class="page">
+    <div class="intro">
+      <p class="eyebrow">A LITTLE DATA. A CLEARER PICTURE.</p>
+      <h1>Explore your startup’s outlook.</h1>
+      <p>Enter a few details to see whether its profile resembles an acquired or closed company.</p>
+    </div>
+
+    <div class="workspace">
+      <section class="form-panel" aria-labelledby="form-title">
+        <div class="panel-heading"><div><p class="eyebrow">01 / THE INPUTS</p><h2 id="form-title">Tell us about the startup</h2></div><details class="example-picker"><summary class="text-button">Try an example <span aria-hidden="true">↗</span></summary><div class="example-menu" aria-label="Example startup profiles"><button type="button" class="example-option" data-example="northstar"><strong>Northstar Labs</strong><span>Software · USA · well funded</span></button><button type="button" class="example-option" data-example="harbor"><strong>Harbor Cart</strong><span>E-commerce · Canada · early stage</span></button><button type="button" class="example-option" data-example="seedling"><strong>Seedling Health</strong><span>Healthcare · India · sparse details</span></button><button type="button" class="example-option" data-example="clear"><strong>Clear the form</strong><span>Start with blank fields</span></button></div></details></div>
+        <p class="form-hint">Leave unknown fields blank. At least one model input is needed.</p>
+        <form id="startup-form" action="{{ url_for('predict') }}" method="post" novalidate>
+          <div id="form-errors" class="error-summary" role="alert" hidden></div>
+          <div class="field"><label for="startup_name">Startup name <span>optional</span></label><input id="startup_name" name="startup_name" maxlength="80" placeholder="e.g. Northstar Labs" autocomplete="organization"><small>For your result label only; it does not affect the prediction.</small><span class="field-error" id="startup_name-error"></span></div>
+
+          <fieldset><legend><span class="step-dot">1</span>Company profile</legend>
+            <div class="field-grid">
+              <div class="field"><label for="country_code">Country</label><select id="country_code" name="country_code"><option value="">Other / unknown</option>{% for country in metadata.countries %}<option value="{{ country.code }}">{{ country.name }}</option>{% endfor %}</select><span class="field-error" id="country_code-error"></span></div>
+              <div class="field"><label for="first_category">Industry</label><select id="first_category" name="first_category"><option value="">Other / unknown</option>{% for category in metadata.categories %}<option value="{{ category }}">{{ category }}</option>{% endfor %}</select><small>Choose one category that best matches.</small><span class="field-error" id="first_category-error"></span></div>
+            </div>
+          </fieldset>
+
+          <fieldset><legend><span class="step-dot">2</span>Funding history</legend>
+            <div class="field-grid">
+              <div class="field"><label for="funding_total_usd">Total funding <span>USD</span></label><div class="input-prefix"><span aria-hidden="true">$</span><input id="funding_total_usd" name="funding_total_usd" type="number" min="0" max="1000000000000" step="any" inputmode="decimal" placeholder="e.g. 5000000"></div><small>All funding raised, in US dollars.</small><span class="field-error" id="funding_total_usd-error"></span></div>
+              <div class="field"><label for="funding_rounds">Funding rounds</label><input id="funding_rounds" name="funding_rounds" type="number" min="1" max="1000" step="1" inputmode="numeric" placeholder="e.g. 3"><small>Number of completed rounds.</small><span class="field-error" id="funding_rounds-error"></span></div>
+            </div>
+          </fieldset>
+
+          <fieldset><legend><span class="step-dot">3</span>Company timeline</legend>
+            <div class="field-grid years-grid">
+              <div class="field"><label for="founded_at_year">Founded year</label><input id="founded_at_year" name="founded_at_year" type="number" min="1800" max="{{ current_year }}" step="1" inputmode="numeric" placeholder="e.g. 2008"><span class="field-error" id="founded_at_year-error"></span></div>
+              <div class="field"><label for="first_funding_at_year">First funding year</label><input id="first_funding_at_year" name="first_funding_at_year" type="number" min="1800" max="{{ current_year }}" step="1" inputmode="numeric" placeholder="e.g. 2009"><span class="field-error" id="first_funding_at_year-error"></span></div>
+              <div class="field"><label for="last_funding_at_year">Last funding year</label><input id="last_funding_at_year" name="last_funding_at_year" type="number" min="1800" max="{{ current_year }}" step="1" inputmode="numeric" placeholder="e.g. 2014"><span class="field-error" id="last_funding_at_year-error"></span></div>
+            </div>
+          </fieldset>
+
+          <div class="form-actions"><button class="primary-button" id="predict-button" type="submit">Check startup outlook <span aria-hidden="true">→</span></button><button type="reset" class="reset-button">Reset</button></div>
+          <p class="privacy-note"><span aria-hidden="true">◇</span> Your entries are processed for this prediction and are not saved.</p>
+          <noscript><p class="error-summary">Enable JavaScript to submit details and view predictions.</p></noscript>
+        </form>
+      </section>
+
+      <aside class="result-column">
+        <section class="result-panel" aria-labelledby="result-heading" aria-live="polite" aria-atomic="true">
+          <p class="eyebrow light">02 / THE OUTLOOK</p>
+          <div id="empty-result"><div class="growth-art" aria-hidden="true"><span class="stem"></span><span class="leaf leaf-one"></span><span class="leaf leaf-two"></span><span class="leaf leaf-three"></span><span class="ground"></span></div><h2 id="result-heading">Every startup has a story.</h2><p>Add your startup’s details, and let the data offer a perspective on yours.</p><span class="ready-tag"><span class="status-dot"></span>Ready when you are</span></div>
+          <div id="prediction-result" hidden>
+            <p id="result-company" class="result-company"></p><h2 id="outcome" tabindex="-1"></h2><p id="outcome-description" class="result-description"></p>
+            <div class="score-block"><div class="score-label"><span>Acquired / success pattern</span><strong id="acquired-value"></strong></div><progress id="acquired-bar" max="100" value="0" aria-label="Acquired model score"></progress></div>
+            <div class="score-block"><div class="score-label"><span>Closed / failure pattern</span><strong id="closed-value"></strong></div><progress id="closed-bar" max="100" value="0" aria-label="Closed model score"></progress></div>
+            <p id="score-context" class="score-context"></p><p class="score-note">Model scores express a match to historical outcomes. They are not calibrated chances of future success or failure.</p>
+          </div>
+        </section>
+        <div id="prediction-warnings" class="warning-box" role="status" hidden></div>
+        <section class="model-note" aria-labelledby="model-title"><div class="note-heading"><span class="small-icon" aria-hidden="true">↗</span><h3 id="model-title">A model, not a crystal ball</h3></div><p>Trained on historical acquired and closed companies. “Success” means acquisition in this dataset. Operating and IPO companies were excluded.</p><div class="model-stat"><strong>{{ '%.1f'|format(metadata.accuracy * 100) }}<span>%</span></strong><span>test accuracy<br>on {{ '{:,}'.format(metadata.test_rows) }} held-out companies</span></div><details><summary>How to interpret the result</summary><p>The model compares funding, dates, country, and industry patterns. Its historical data ends in 2015; performance on current startups has not been validated. Historical funding may also include information recorded after the outcome.</p><p>Unknown inputs are filled using training values. A first industry category is used as a simple representation. This is an exploratory classification tool, not a forecast of survival duration.</p></details></section>
+      </aside>
+    </div>
+    <footer><span>Canopy <span aria-hidden="true">/</span> Startup Survivability Project</span><span>Random Forest · 100 trees · 7 input features</span></footer>
+  </main>
+</body>
+</html>

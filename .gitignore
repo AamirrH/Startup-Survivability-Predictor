@@ -2,4 +2,7 @@
 .ipynb_checkpoints/
 __pycache__/
 .runtime/
+misc/runtime/ipython/
+misc/runtime/jupyter/
+misc/runtime/matplotlib/
 data/big_startup_secsees_dataset.csv

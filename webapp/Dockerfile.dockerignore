@@ -1,0 +1,7 @@
+**
+!webapp/
+!webapp/**
+webapp/**/__pycache__
+webapp/**/*.pyc
+webapp/tests
+webapp/screenshots
