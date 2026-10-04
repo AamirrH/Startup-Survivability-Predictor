@@ -1,0 +1,5 @@
+.venv/
+.ipynb_checkpoints/
+__pycache__/
+.runtime/
+data/big_startup_secsees_dataset.csv

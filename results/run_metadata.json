@@ -1,0 +1,33 @@
+{
+  "verified_run_date": "2026-10-04",
+  "python_version": "3.12.14",
+  "packages": {
+    "pandas": "2.3.3",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "joblib": "1.6.0",
+    "nbformat": "5.11.1",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.4.0"
+  },
+  "dataset_url": "https://www.kaggle.com/datasets/yanmaksi/big-startup-secsees-fail-dataset-from-crunchbase",
+  "raw_sha256": "3d3a8f386f1cd64e65b6f7a4cb57b464d5ed448202c0df45d9f80645d70e2354",
+  "cleaned_sha256": "c841fc5ef549d145372e1c262a730ce7bd658db92059a744cf90f844dedfdf24",
+  "random_state": 42,
+  "train_rows": 9429,
+  "test_rows": 2358,
+  "cross_validation_folds": 3,
+  "search_candidates_per_model": 6,
+  "selection_metric": "f1_macro",
+  "checks": [
+    "all notebooks fully executed",
+    "no notebook error outputs",
+    "no code comments",
+    "identical stratified test companies and labels",
+    "all eight test metrics reproduced from saved predictions",
+    "highest validation macro F1 candidate selected",
+    "comparison matches individual saved metrics"
+  ]
+}
